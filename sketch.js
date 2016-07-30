@@ -41,5 +41,6 @@ function createBoxes() {
     }
   
   boxes[i] = new p5(sketch1);
+  boxes[i].style("position", absolute");
   }
 }
