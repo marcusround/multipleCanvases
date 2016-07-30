@@ -7,6 +7,7 @@ function preload() {
 
 function setup() {
   cnv = createCanvas(windowWidth, windowHeight);
+  cnv.style("z-index", -999);
   origin = createVector(width/2, height);
   boxes[0] = new canvasBox ( "Hello", 0, -100, 150, 85, 0);
   boxes[1] = new canvasBox ( "Hi", 0, -100, 105, 75, 1);
@@ -15,7 +16,8 @@ function setup() {
 var f = 0;
 
 function draw() {
-  // background(random(128, 156), random(75, 184), random(27, 85)); 
+  background(random(128, 156), random(75, 184), random(27, 85));
+  ellipse(mouseX, mouseY, 85, 85);
   f = frameCount%100;
   if (f == 0){
     for (var i = 0; i < boxes.length; i++){
