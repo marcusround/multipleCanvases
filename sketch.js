@@ -135,6 +135,7 @@ function canvasBox (inputText, inputX, inputY, inputWidth, inputHeight, idInput)
     
     p.setup = function() {
       this.cnv = p.createCanvas(safeOuterWidth, safeOuterHeight).class("canvasBox");
+      this.cnv.style("z-index", 99);
     };
     
     p.draw = function() {
