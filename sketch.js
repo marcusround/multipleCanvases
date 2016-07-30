@@ -16,7 +16,7 @@ function setup() {
 var f = 0;
 
 function draw() {
-  background(random(128, 156), random(75, 184), random(27, 85));
+  // background(random(128, 156), random(75, 184), random(27, 85));
   ellipse(mouseX, mouseY, 85, 85);
   f = frameCount%100;
   if (f == 0){
