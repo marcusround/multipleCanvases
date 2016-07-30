@@ -24,11 +24,12 @@ function draw() {
 
 function createBoxes() {
   for (var i = 0; i < 10; i++){
-    
+    boxes[i] = new Box();
   }
 }
 
 function Box() {
+  
   var sktch = function (p) {
       p.setup = function(){
         this.cnv = p.createCanvas(300, 300);
