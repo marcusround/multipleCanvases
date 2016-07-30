@@ -15,18 +15,18 @@ function draw() {
   
   background(random(128, 232), random(64, 128), random(150, 210)); //purple
   
-  if ( f == 0 ){
-    for (var i = 0; i < boxes.length; i++){
-      boxes[i].position(random(width), random(height));
-    }
-  }
+  // if ( f == 0 ){
+  //   for (var i = 0; i < boxes.length; i++){
+  //     boxes[i].position(random(width), random(height));
+  //   }
+  // }
 }
 
 function createBoxes() {
   for (var i = 0; i < 10; i++){
-    var sketch1 = function (p) {
+    boxes[i].sketch = function (p) {
       p.setup = function(){
-        p.createCanvas(300, 300);
+        boxes[i].sketch.cnv = p.createCanvas(300, 300);
         p.imageMode(CENTER);
       }
       var n =0;
@@ -40,7 +40,7 @@ function createBoxes() {
       }
     }
   
-  boxes[i] = new p5(sketch1);
-  boxes[i].style("position", "absolute");
+  // boxes[i] = new p5(sketch1);
+  // boxes[i].style("position", "absolute");
   }
 }
