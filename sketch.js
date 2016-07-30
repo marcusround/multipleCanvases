@@ -13,6 +13,10 @@ function setup() {
 function draw() {
   f = frameCount%100;
   background(random(128, 232), random(64, 128), random(150, 210)); //purple
+  
+  for (var i = 0; i < boxes.length; i++){
+    boxes[i].cnv.position(random(width), random(height));
+  }
 }
 
 function createBoxes() {
@@ -26,6 +30,7 @@ function Box() {
   var sktch = function (p) {
       p.setup = function(){
         this.cnv = p.createCanvas(300, 300);
+        this.cnv.style("position", "relative");
         p.imageMode(CENTER);
       }
       var n =0;
