@@ -9,15 +9,17 @@ function draw() {
 }
 
 function createBoxes() {
-  var sketch1 = function (p) {
-    p.setup = function(){
-      p.createCanvas(300, 300);
+  for (var i = 0; i < 10; i++){
+    var sketch1 = function (p) {
+      p.setup = function(){
+        p.createCanvas(300, 300);
+      }
+      
+      p.draw = function(){
+        p.background(random(64, 128), random(128, 232), random(150, 210)); // cyan
+      }
     }
     
-    p.draw = function(){
-      p.background(random(64, 128), random(128, 232), random(150, 210)); // cyan
-    }
+    var canvas1 = new p5(sketch1);
   }
-  
-  var canvas1 = new p5(sketch1);
 }
