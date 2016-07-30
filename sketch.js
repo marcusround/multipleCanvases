@@ -3,6 +3,7 @@ function preload() {
 }
 
 var boxes = [];
+var f = 0;
 
 function setup() {
   createBoxes();
@@ -10,7 +11,15 @@ function setup() {
 }
 
 function draw() {
+  f = frameCount%100;
+  
   background(random(128, 232), random(64, 128), random(150, 210)); //purple
+  
+  if ( f == 0 ){
+    for (var i = 0; i < boxes.length; i++){
+      boxes[i].position(random(width), random(height));
+    }
+  }
 }
 
 function createBoxes() {
@@ -23,7 +32,6 @@ function createBoxes() {
       var n =0;
       p.draw = function(){
         p.background(random(64, 128), random(128, 232), random(150, 210)); // cyan
-        f = frameCount%100;
         if (f == 0 ){
           n = random(TAU);
         }
