@@ -13,9 +13,10 @@ function setup() {
 function draw() {
   f = frameCount%100;
   background(random(128, 232), random(64, 128), random(150, 210)); //purple
-  
-  for (var i = 0; i < boxes.length; i++){
-    boxes[i].sketch.cnv.position(random(width), random(height));
+  if (f == 0){
+    for (var i = 0; i < boxes.length; i++){
+      boxes[i].sketch.cnv.position(random(width), random(height));
+    }
   }
 }
 
