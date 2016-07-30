@@ -159,7 +159,7 @@ function canvasBox (inputText, inputX, inputY, inputWidth, inputHeight, idInput)
     p.draw = function() {
       // p.println("draw running");
       p.clear();
-      p.background("red");
+      // p.background("red");
       p.image(boxRender);
     }
   }
