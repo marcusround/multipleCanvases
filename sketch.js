@@ -2,10 +2,11 @@ function preload() {
   img = loadImage("assets/tex/paper.jpg")
 }
 
+var boxes = [];
+
 function setup() {
   createBoxes();
   cnv = createCanvas(300, 300);
-  
 }
 
 function draw() {
@@ -31,7 +32,6 @@ function createBoxes() {
       }
     }
   
-  var canvas1 = new p5(sketch1);
-
+  boxes[i] = new p5(sketch1);
   }
-  }
+}
