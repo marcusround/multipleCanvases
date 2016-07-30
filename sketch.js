@@ -15,7 +15,7 @@ function draw() {
   background(random(128, 232), random(64, 128), random(150, 210)); //purple
   
   for (var i = 0; i < boxes.length; i++){
-    boxes[i].cnv.position(random(width), random(height));
+    boxes[i].sketch.cnv.position(random(width), random(height));
   }
 }
 
