@@ -1,6 +1,19 @@
 var boxes = [];
 var origin;
 
+var boxConstructionArray = 
+                  // Input string, x, y, width, height
+                  ["<h1>Hello!</h1>", 0, -window.innerHeight/2, 160, 85
+                  ,"<h1>My name is Marcus Round.</h1><br>Nice to meet you.", 0, -window.innerHeight/2, 375, 170
+                  ,"I was a lead animator on<br><h1>World Animal Championships</h1><br>which screened on Disney Channel UK<br>and National Geographic Kids.", 0, -window.innerHeight/2, 455, 195
+                  ,'Here\'s my reel.<br><iframe src="https://player.vimeo.com/video/86865495" width="320" height="180" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>', 0, -window.innerHeight/2, 390, 250
+                  ,"I've now been learning JavaScript,<br><h1>and this guy is the result!</h1>", 0, -window.innerHeight/2, 420, 118
+                  ,"<h1>I love creating interactive characters.</h1>", 0, -window.innerHeight/2, 475, 82
+                  ,"You can find me at<br><a href='http://www.marcusround.com'>marcusround.com</a>or <a href='http://www.twitter.com/marcusround'>@marcusround</a>", 0, -window.innerHeight/2, 320, 134
+                  ,"<h1>Thanks for visiting!</h1>", 0, -window.innerHeight/2, 270, 70
+                  ];
+var boxParameters = 5;
+
 function preload() {
   imgPaperBG = loadImage("assets/tex/paper.jpg");
 }
@@ -9,14 +22,19 @@ function setup() {
   cnv = createCanvas(windowWidth, windowHeight);
   cnv.style("z-index", -999);
   origin = createVector(width/2, height);
-  boxes[0] = new canvasBox ( "Hello", 0, -100, 150, 85, 0);
-  boxes[1] = new canvasBox ( "Hi", 0, -100, 105, 75, 1);
+  numBoxes = boxConstructionArray.length / boxParameters;
+  for (var i = 0; i < numBoxes; i++){
+    // Did the best I could to automate this but you'll have to edit the parameter sequence manually if you add/remove a parameter. The final parameter uses i as a unique identifier for the div that is created.
+    boxes[i] = new canvasBox(boxConstructionArray[i*boxParameters], boxConstructionArray[(i*boxParameters)+1], boxConstructionArray[(i*boxParameters)+2], boxConstructionArray[(i*boxParameters)+3], boxConstructionArray[(i*boxParameters)+4], i);
+    // We have a sidecar array to store the layer order of the boxes
+    // boxOrder[i] = i;
+  }
 }
 
 var f = 0;
 
 function draw() {
-  // background(random(128, 156), random(75, 184), random(27, 85));
+  clear();
   ellipse(mouseX, mouseY, 85, 85);
   f = frameCount%100;
   if (f == 0){
